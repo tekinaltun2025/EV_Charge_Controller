@@ -1,0 +1,17 @@
+[Unit]
+Description=Tuya EV Charging Station Panel (Cloud API)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/tekinaltun/projects/tuya-local
+Environment=TUYA_ACCESS_ID=8k77w67m953c7pckxdvge
+Environment=TUYA_ACCESS_SECRET=***
+ExecStart=/home/tekinaltun/projects/tuya-local/venv/bin/python app_ev.py
+Restart=always
+RestartSec=3
+User=tekinaltun
+
+[Install]
+WantedBy=multi-user.target
